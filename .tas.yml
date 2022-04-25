@@ -1,0 +1,17 @@
+---
+framework: jest
+preRun:
+     command:
+        - npm ci
+        - npm run build
+        - npm run format-check
+preMerge:
+  pattern:
+    - "./test/*/*.test.js"
+postMerge: 
+  pattern: 
+    - "./test/*/*.test.js"
+postRun:
+     command:
+        - npm run site
+version: 1.0
